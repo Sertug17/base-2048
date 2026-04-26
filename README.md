@@ -1,39 +1,21 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-onchain`](https://www.npmjs.com/package/create-onchain).
+# Base 2048
 
+Onchain 2048 game built on Base. Combine crypto symbols (BASE → ETH → USDC → ...) and submit your high score to the blockchain.
 
-## Getting Started
+## Stack
+- Next.js 15 + OnchainKit + Wagmi
+- Solidity smart contract on Base Sepolia
+- MetaMask + Base App Mini App
 
-First, install dependencies:
+## Contract
+- Network: Base Sepolia
+- Address: `0x58137217816557bA97cF47e522eB9D45c4233e91`
+- [View on BaseScan](https://sepolia.basescan.org/address/0x58137217816557bA97cF47e522eB9D45c4233e91)
 
+## Run locally
 ```bash
 npm install
-# or
-yarn install
-# or
-pnpm install
-# or
-bun install
-```
-
-Next, run the development server:
-
-```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-
-## Learn More
-
-To learn more about OnchainKit, see our [documentation](https://docs.base.org/onchainkit).
-
-To learn more about Next.js, see the [Next.js documentation](https://nextjs.org/docs).
+Built by [@SerhatDolmac](https://x.com/SerhatDolmac)
