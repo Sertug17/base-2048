@@ -1,11 +1,10 @@
 const ROOT_URL =
   process.env.NEXT_PUBLIC_URL ||
   (process.env.VERCEL_URL && `https://${process.env.VERCEL_URL}`) ||
-  "http://localhost:3000";
+  "https://base-2048-s3jz.vercel.app";
 
 /**
  * MiniApp configuration object. Must follow the mini app manifest specification.
- *
  * @see {@link https://docs.base.org/mini-apps/features/manifest}
  */
 export const minikitConfig = {
@@ -15,25 +14,25 @@ export const minikitConfig = {
     signature: "",
   },
   baseBuilder: {
-    ownerAddress: "",
+    ownerAddress: "0xE8D0A25E5Bf18870Ad5B0D2164144982BE2441Da",
   },
   miniapp: {
     version: "1",
-    name: "base-2048",
-    subtitle: "",
-    description: "",
-    screenshotUrls: [],
+    name: "Base 2048",
+    subtitle: "Onchain 2048",
+    description: "Combine BASE → ETH → USDC and submit your high score onchain to Base Mainnet.",
+    screenshotUrls: [`${ROOT_URL}/screenshot.png`],
     iconUrl: `${ROOT_URL}/icon.png`,
     splashImageUrl: `${ROOT_URL}/splash.png`,
-    splashBackgroundColor: "#000000",
+    splashBackgroundColor: "#0052FF",
     homeUrl: ROOT_URL,
     webhookUrl: `${ROOT_URL}/api/webhook`,
-    primaryCategory: "utility",
-    tags: ["example"],
+    primaryCategory: "games",
+    tags: ["game", "2048", "onchain", "base", "puzzle"],
     heroImageUrl: `${ROOT_URL}/hero.png`,
-    tagline: "",
-    ogTitle: "",
-    ogDescription: "",
+    tagline: "Combine, conquer, go onchain",
+    ogTitle: "Base 2048",
+    ogDescription: "Onchain 2048 game on Base. Combine crypto symbols and submit your score.",
     ogImageUrl: `${ROOT_URL}/hero.png`,
   },
 } as const;
