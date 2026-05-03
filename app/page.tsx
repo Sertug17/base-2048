@@ -1,9 +1,19 @@
 'use client';
 
+import { useEffect } from 'react';
+import { useMiniKit } from '@coinbase/onchainkit/minikit';
 import { Wallet, ConnectWallet } from '@coinbase/onchainkit/wallet';
 import Game2048 from './Game2048';
 
 export default function Page() {
+  const { setFrameReady, isFrameReady } = useMiniKit();
+
+  useEffect(() => {
+    if (!isFrameReady) {
+      setFrameReady();
+    }
+  }, [isFrameReady, setFrameReady]);
+
   return (
     <div style={{
       minHeight: '100vh',
@@ -17,9 +27,7 @@ export default function Page() {
             <ConnectWallet />
           </Wallet>
         </div>
-
         <Game2048 />
-
         <div style={{
           marginTop: '32px',
           textAlign: 'center',
