@@ -1,13 +1,11 @@
 // app/contract.ts
-// Base 2048 Leaderboard — Base Sepolia (84532)
-
-export const LEADERBOARD_ADDRESS = '0x58137217816557bA97cF47e522eB9D45c4233e91' as const;
-
-export const BASE_SEPOLIA_CHAIN_ID = 84532;
+// Base 2048 Leaderboard — Base Mainnet (8453)
+export const LEADERBOARD_ADDRESS = '0x4C7b13f683B397B5D89cC8EbCF294dc22BBe64E4' as const;
+export const BASE_MAINNET_CHAIN_ID = 8453;
 
 export const LEADERBOARD_ABI = [
   {
-    inputs: [{ internalType: 'uint256', name: '_score', type: 'uint256' }],
+    inputs: [{ internalType: 'uint256', name: 'score', type: 'uint256' }],
     name: 'submitScore',
     outputs: [],
     stateMutability: 'nonpayable',
@@ -15,17 +13,17 @@ export const LEADERBOARD_ABI = [
   },
   {
     inputs: [{ internalType: 'address', name: '', type: 'address' }],
-    name: 'bestScore',
+    name: 'highScore',
     outputs: [{ internalType: 'uint256', name: '', type: 'uint256' }],
     stateMutability: 'view',
     type: 'function',
   },
   {
-    inputs: [{ internalType: 'address', name: '_player', type: 'address' }],
-    name: 'getPlayerStats',
+    inputs: [{ internalType: 'address', name: 'player', type: 'address' }],
+    name: 'getStats',
     outputs: [
-      { internalType: 'uint256', name: 'best', type: 'uint256' },
-      { internalType: 'uint256', name: 'plays', type: 'uint256' },
+      { internalType: 'uint256', name: 'high', type: 'uint256' },
+      { internalType: 'uint256', name: 'count', type: 'uint256' },
     ],
     stateMutability: 'view',
     type: 'function',
@@ -39,9 +37,20 @@ export const LEADERBOARD_ABI = [
   },
   {
     inputs: [],
-    name: 'totalSubmissions',
+    name: 'getScoreCount',
     outputs: [{ internalType: 'uint256', name: '', type: 'uint256' }],
     stateMutability: 'view',
     type: 'function',
+  },
+  {
+    anonymous: false,
+    inputs: [
+      { indexed: true, internalType: 'address', name: 'player', type: 'address' },
+      { indexed: false, internalType: 'uint256', name: 'score', type: 'uint256' },
+      { indexed: false, internalType: 'uint256', name: 'timestamp', type: 'uint256' },
+      { indexed: false, internalType: 'bool', name: 'newHighScore', type: 'bool' },
+    ],
+    name: 'ScoreSubmitted',
+    type: 'event',
   },
 ] as const;

@@ -139,7 +139,8 @@ export default function Game2048() {
   const { data: onchainBest, refetch: refetchBest } = useReadContract({
     address: LEADERBOARD_ADDRESS,
     abi: LEADERBOARD_ABI,
-    functionName: 'bestScore',
+    functionName: 'highScore',
+    chainId: 8453,
     args: address ? [address] : undefined,
     query: { enabled: !!address },
   });
@@ -217,6 +218,7 @@ export default function Game2048() {
       address: LEADERBOARD_ADDRESS,
       abi: LEADERBOARD_ABI,
       functionName: 'submitScore',
+      chainId: 8453,
       args: [BigInt(score)],
     });
   };
@@ -289,7 +291,7 @@ export default function Game2048() {
 
       {isConnected && (
         <div style={styles.onchainBox}>
-          <div style={styles.onchainTitle}>🔗 Onchain (Base Sepolia)</div>
+          <div style={styles.onchainTitle}>🔗 Onchain (Base Mainnet)</div>
           <div style={styles.onchainBest}>
             Zincirdeki en yüksek skorun: <strong>{onchainBestStr}</strong>
           </div>
